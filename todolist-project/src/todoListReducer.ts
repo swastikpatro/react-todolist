@@ -11,8 +11,6 @@ function todoListReducer(state: stateType, action: actionType): stateType {
         ],
       };
     case 'REMOVE_ITEM':
-      console.log(state.editId === action.idRemoved);
-
       return {
         ...state,
         isEditing: false,
@@ -21,7 +19,6 @@ function todoListReducer(state: stateType, action: actionType): stateType {
         ),
       };
     case 'EDIT_ITEM':
-      console.log('Im here');
       return {
         ...state,
         isEditing: true,
