@@ -14,7 +14,8 @@ function App() {
 
   function handleContainerClick(e: React.MouseEvent<HTMLDivElement>): void {
     const targetElement = e.target as HTMLElement;
-    const targetElementData = targetElement.dataset;
+    const targetBtnEle = targetElement.closest('.button') as HTMLElement;
+    const targetElementData = targetBtnEle.dataset;
 
     if (!targetElementData.hasOwnProperty('clickType')) {
       return;
@@ -64,7 +65,12 @@ function App() {
       >
         <h3>Todo List</h3>
         <div className='form-control'>
-          <input type='text' ref={formInputRef} />
+          <input
+            type='text'
+            ref={formInputRef}
+            className='input'
+            placeholder='e.g. Hiking'
+          />
 
           <button type='submit' className='submit-btn'>
             {state.isEditing ? 'edit' : 'add'}
