@@ -1,56 +1,6 @@
 import React, { useReducer, useRef } from 'react';
 import List from './List';
-import { stateType, actionType } from './types';
-
-function todoListReducer(state: stateType, action: actionType): stateType {
-  switch (action.type) {
-    case 'ADD_ITEM':
-      return {
-        ...state,
-        list: [
-          ...state.list,
-          { id: new Date().getTime().toString(), text: action.message },
-        ],
-      };
-    case 'REMOVE_ITEM':
-      return {
-        ...state,
-        isEditing: state.editId === action.idRemoved ? false : true,
-        list: state.list.filter(
-          (singleItem) => singleItem.id !== action.idRemoved
-        ),
-      };
-    case 'EDIT_ITEM':
-      console.log(typeof state.editId);
-      return {
-        ...state,
-        isEditing: true,
-        editId: action.idEdited,
-      };
-    case 'SHOW_EDITED_LIST':
-      return {
-        ...state,
-        isEditing: false,
-        list: state.list.map((singleItem) => {
-          if (singleItem.id === state.editId) {
-            return { ...singleItem, text: action.message };
-          } else {
-            return singleItem;
-          }
-        }),
-      };
-    case 'CLEAR_ALL':
-      return {
-        ...state,
-        list: [],
-        isEditing: false,
-        editId: '',
-      };
-
-    default:
-      throw new Error('Error');
-  }
-}
+import todoListReducer from './todoListReducer';
 
 const defaultState = {
   list: [],
@@ -77,7 +27,6 @@ function App() {
       });
 
       formInputRef.current.value = targetElementData.mainText!;
-      // formInputRef?.current?.value = targetElementData.mainText;
     } else {
       dispatch({ type: 'REMOVE_ITEM', idRemoved: targetElementData.id });
     }
@@ -115,7 +64,7 @@ function App() {
       >
         <h3>Todo List</h3>
         <div className='form-control'>
-          <input type='text' name='' ref={formInputRef} id='' />
+          <input type='text' ref={formInputRef} />
 
           <button type='submit' className='submit-btn'>
             {state.isEditing ? 'edit' : 'add'}
