@@ -311,3 +311,28 @@ Grocery List
 .clear-btn:hover {
   color: var(--clr-red-dark);
 }
+
+.toast-dismiss-btn {
+  background: transparent;
+  border-color: transparent;
+  position: absolute;
+  top: 0.2rem;
+  right: 0.2rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--clr-white);
+  transition: var(--transition);
+}
+
+.toast-success-dismiss-btn:hover {
+  color: var(--clr-green-light);
+}
+
+.toast-error-dismiss-btn:hover {
+  color: red;
+}
+
+[role='status'] {
+  display: block;
+  letter-spacing: var(--spacing);
+}

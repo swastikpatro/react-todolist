@@ -11,15 +11,17 @@ function todoListReducer(state: stateType, action: actionType): stateType {
         ],
       };
     case 'REMOVE_ITEM':
+      console.log(state.editId === action.idRemoved);
+
       return {
         ...state,
-        isEditing: state.editId === action.idRemoved ? false : true,
+        isEditing: false,
         list: state.list.filter(
           (singleItem) => singleItem.id !== action.idRemoved
         ),
       };
     case 'EDIT_ITEM':
-      console.log(typeof state.editId);
+      console.log('Im here');
       return {
         ...state,
         isEditing: true,

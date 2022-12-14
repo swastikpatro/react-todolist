@@ -21,6 +21,7 @@ const List = ({ myList }: { myList: listType[] }) => {
             <button
               className='button remove-btn'
               data-id={singleItem.id}
+              data-main-text={singleItem.text}
               data-click-type='remove'
             >
               <AiFillDelete />
