@@ -7,7 +7,7 @@
 https://user-images.githubusercontent.com/113245457/207776381-d7b82e34-af63-4702-8da8-c60e5fba1b95.mp4
 
 ## Features:
-- Event Delegation on the container holding toods.
+- Event Delegation on the container holding todos.
 - If a todo is in edit mode, and removing the same todo from the list leads to change in Button text from 'Edit' ----> 'Add'.
 - If a todo is in edit mode, and removing all the todos from the list leads to change in Button text from 'Edit' ----> 'Add', also input field is emptied.
 - If clicked on 'Add' or 'Edit' with empty input field leads to toast notification asking to enter some input.
